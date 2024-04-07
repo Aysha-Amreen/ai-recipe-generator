@@ -21,7 +21,7 @@ const Hdr = (props) => {
       <h1>AI Generated Recipes</h1>
       <div className='searchBar'>
         <button onClick={searchHandler}>
-          <img id='search' src='recipes-generator-app/src/app/resources/search.png' alt='search'/>
+          <img id='search' src='../resources/search.png' alt='search'/>
         </button>
         <input
           type="text"
