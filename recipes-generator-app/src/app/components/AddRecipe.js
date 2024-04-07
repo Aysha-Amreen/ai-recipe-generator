@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 
-const form = () => {
+const AddRecipe = () => {
   const [enteredIngredient, setIngredient] = useState('');
   const [enteredAmount, setAmount] = useState('');
   const [enteredSize, setSize] = useState('');
@@ -90,4 +90,4 @@ const form = () => {
   );
 }
 
-export default form;
+export default AddRecipe;
