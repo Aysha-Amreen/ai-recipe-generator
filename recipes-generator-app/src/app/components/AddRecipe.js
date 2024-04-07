@@ -1,96 +1,93 @@
 'use client'
-import React, {useState} from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useState } from 'react';
 
-const AddRecipe = (props) => {
-  const [userInput, setUserInput] = useState({
-    enteredUsername: '',
-    enteredAge: '',
-    enteredImg: '',
-    enteredMajor: ''
-  });
-  
-  const changeHandler = (event) => {
-    const {id, value} = event.target;
+const form = () => {
+  const [enteredIngredient, setIngredient] = useState('');
+  const [enteredAmount, setAmount] = useState('');
+  const [enteredSize, setSize] = useState('');
+  const [enteredTime, setTime] = useState('');
 
-    setUserInput((prevState) => {
-      return {
-        ...prevState, 
-        [id]: value, // Update the correct field based on the input's id
-      };
-    });
+  const ingredientChangeHandler = (event) => {
+    setIngredient(event.target.value);
   };
+  const amountChangeHandler = (event) => {
+    setAmount(event.target.value);
+  };
+  const sizeChangeHandler = (event) => {
+    setSize(event.target.value);
+  };
+  const timeChangeHandler = (event) => {
+    setTime(event.target.value);
+  };
+
 
   const submitHandler = (event) => {
     event.preventDefault();
 
-    // Destructure the state object to get individual values
-    const {enteredUsername, enteredAge, enteredImg, enteredMajor} = userInput;
-
-    // Check if the username is not entered and alert the user if true
-    if (enteredUsername.trim().length == 0) {
-      alert('Please enter a username.'); // This line alerts the user
-      return; // Stop the function from proceeding further
-    }
-    
-    const userData = {
-      username: enteredUsername,
-      age: enteredAge,
-      img: enteredImg,
-      major: enteredMajor,
-      id: uuidv4()
+    const formData = {
+      ingredient: enteredIngredient,
+      amount: enteredAmount,
+      servingSize: enteredSize,
+      cookTime: enteredTime
     };
 
-    props.onAddUser(userData);
+    props.onSaveExpenseData(formData);
 
-    console.log(userData);
-    
-    setUserInput({
-      enteredUsername: '',
-      enteredAge: '',
-      enteredImg: '',
-      enteredMajor: ''
-    });
+    console.log(formData);
+    setIngredient('');
+    setAmount('');
+    setSize('');
+    setTime('');
   };
 
-  return (
-    <Card className="input">
-      <form onSubmit={submitHandler}>
-        <label>Username</label>
-        <input
-          id="enteredUsername"
-          type="text"
-          value={userInput.enteredUsername}
-          onChange={changeHandler}
-        />
-        <label>Age (Years)</label>
-        <input
-          id="enteredAge"
-          type="number"
-          min={1}
-          step={1}
-          max={100}
-          value={userInput.enteredAge}
-          onChange={changeHandler}
-        />
-        <label>Link to image</label>
-         <input
-          id="enteredImg"
-          type="text"
-          value={userInput.enteredImg}
-          onChange={changeHandler}
-        />
-        <label>Major</label>
-         <input
-          id="enteredMajor"
-          type="text"
-          value={userInput.enteredMajor}
-          onChange={changeHandler}
-        />
-        <Button type="submit">Add User</Button>
-      </form>
-    </Card>
-  );
-};
 
-export default AddRecipe;
+  return (
+    <form onSubmit={submitHandler}>
+      <div className=''>
+        <div className=''>
+          <label>Ingredient</label>
+          <input
+            type='text'
+            value={enteredIngredient}
+            onChange={ingredientChangeHandler}
+          />
+        </div>
+        <div className=''>
+          <label>Amount</label>
+          <input
+            type='number'
+            min='0.25'
+            step='0.25'
+            value={enteredAmount}
+            onChange={amountChangeHandler}
+          />
+        </div>
+        <div className=''>
+          <label>Serving Size</label>
+          <input
+            type='number'
+            min='1.0'
+            step='1.0'
+            value={enteredSize}
+            onChange={sizeChangeHandler}
+          />
+        </div>
+        <div className=''>
+          <label>Total Cooking Time (in minutes)</label>
+          <input
+            type='number'
+            min='1.0'
+            step='1.0'
+            value={enteredTime}
+            onChange={timeChangeHandler}
+          />
+        </div>
+      </div>
+      <div className=''>
+        <button type='submit'>Generate Recipe</button>
+      </div>
+    </form>
+  );
+}
+
+export default form;
