@@ -1,8 +1,8 @@
 'use client'
 import { useRouter } from 'next/router';
 
-import RecipesList from './components/RecipesList';
-import Hdr from './components/Hdr';
+import RecipesList from '../components/RecipesList';
+import Hdr from '../components/Hdr';
 
 const Home = () => {
 

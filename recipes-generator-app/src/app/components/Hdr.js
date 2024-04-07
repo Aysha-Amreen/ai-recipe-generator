@@ -17,7 +17,7 @@ const Hdr = (props) => {
 
   return (
     <div className='hdr'>
-      <img id='logo' src='recipes-generator-app/src/app/resources/logo.png' alt='logo'/>
+      <img id='logo' src='../resources/search.png' alt='logo'/>
       <h1>AI Generated Recipes</h1>
       <div className='searchBar'>
         <button onClick={searchHandler}>
