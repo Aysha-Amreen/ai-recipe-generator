@@ -42,15 +42,15 @@ const Home = () => {
   const recipes = DUMMY_RECIPES;
   
   const router = useRouter();
-  const loginHandler = () => {
-    // Programmatically navigate to authorized view
-    router.push('/create-recipe');
+  const logoutHandler = () => {
+    // Programmatically navigate to homepage
+    router.push('/');
   };
 
   return (
     <div>
       <Hdr>
-        <button onClick={loginHandler}>login/signup</button>
+        <button onClick={logoutHandler}>logout</button>
       </Hdr>
       <RecipesList items={recipes}/>
     </div>

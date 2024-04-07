@@ -1,7 +1,9 @@
 'use client'
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+import Link from "next/link";
 
 import RecipesList from './components/RecipesList';
+import AddRecipe from './components/AddRecipe';
 import Hdr from './components/Hdr';
 
 const Home = () => {
@@ -39,20 +41,25 @@ const Home = () => {
     }
   ];
 
-  const recipes = DUMMY_RECIPES;
-  
-  const router = useRouter();
-  const loginHandler = () => {
-    // Programmatically navigate to authorized view
-    router.push('/create-recipe');
+  const [showAddUser, setShowAddUser] = useState(false);
+
+  const toggleAddUserVisibility = () => {
+    setShowAddUser((prevShowAddUser) => !prevShowAddUser);
+  };
+
+  const [users, setUsers] = useState(DUMMY_RECIPES);
+
+  const addUserHandler = (user) => {
+    setUsers((prevUsers) => {
+      return [user, ...prevUsers];
+    });
   };
 
   return (
     <div>
-      <Hdr>
-        <button onClick={loginHandler}>login/signup</button>
-      </Hdr>
-      <RecipesList items={recipes}/>
+      <Hdr onAddUserClicked={toggleAddUserVisibility}/>
+      {showAddUser && <AddUser onAddUser={addUserHandler}/>}
+      <UsersList items={users}/>
     </div>
   );
 }
