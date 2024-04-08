@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation';
 
-import AddRecipe from './components/AddRecipe';
+import AddRecipe from '../components/AddRecipe';
 
 const Home = () => {
 
