@@ -1,7 +1,9 @@
 'use client'
+import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import AddRecipe from '../components/AddRecipe';
+import '../css/App.css';
 
 const Home = () => {
 
@@ -14,7 +16,7 @@ const Home = () => {
     return (
         <div>
         <AddRecipe>
-            <button onClick={cancelHandler}>Cancel</button>
+            <button id='cancel' onClick={cancelHandler}>Cancel</button>
         </AddRecipe>
         </div>
     );

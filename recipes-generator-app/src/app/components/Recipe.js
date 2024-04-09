@@ -1,12 +1,14 @@
 import React from 'react';
+import '../css/Recipe.css';
 
 const Recipe = (props) => {
 
-    return (    
-        <li>
-        <h3>{props.title}</h3>
-        <img src={props.img} alt={props.title}/>        
-        </li>
+    return ( 
+        <div className='recipe-item'>
+            <h2>{props.title}</h2>
+            <img src={props.img} alt={props.title}/>
+            <p>{props.description}</p>        
+        </div>
     )
 }
 

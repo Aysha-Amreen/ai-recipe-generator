@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './Hdr.css';
+import '../css/Hdr.css';
 
 const Hdr = (props) => {
 
@@ -16,13 +16,13 @@ const Hdr = (props) => {
 
   return (
     <div className='hdr'>
-      <img id='logo' src='../resources/search.png' alt='logo'/>
+      <img id='logo' src='../resources/logo.png' alt='logo'/>
       <h1>AI Generated Recipes</h1>
       <div className='searchBar'>
-        <button onClick={searchHandler}>
+        <button id='searchButton' onClick={searchHandler}>
           <img id='search' src='../resources/search.png' alt='search'/>
         </button>
-        <input
+        <input className='inputbox'
           type="text"
           value={query}
           onChange={queryHandler}

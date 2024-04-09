@@ -1,7 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react';
 
-const AddRecipe = () => {
+import '../css/RecipeCard.css'
+
+const AddRecipe = (props) => {
   const [formRows, setFormRows] = useState([{ id: 1 }]);
 
   useEffect(() => {
@@ -80,129 +82,102 @@ const AddRecipe = () => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className=''>
-        {/*{formRows.map((row) => (
-          <div className=''>
-            <label>Ingredient: </label>
+    <div className='card'>
+      <h1>Generate your own recipe!</h1>
+      <form onSubmit={submitHandler}>  
+        <div className='cardcontent'>
+        <h3>Ingredients: </h3>        
+          <div className='inputs'>
+            <label>Ingredient 1: </label>
             <input
               type='text'
-              value={enteredIngredient}
-              onChange={ingredientChangeHandler}
+              value={enteredIngredient1}
+              onChange={ingredient1ChangeHandler}
             />
             <label> Amount: </label>
             <input
               type='number'
               min='0.25'
               step='0.25'
-              value={enteredAmount}
-              onChange={amountChangeHandler}
+              value={enteredAmount1}
+              onChange={amount1ChangeHandler}
             />
-            <button
-              onClick={() =>
-                setFormRows(formRows.filter((fr) => fr.id !== row.id))
-              }
-            >
-              remove
-            </button>
           </div>
-        ))}
-        <button
-          onClick={() => setFormRows([...formRows, { id: formRows.length + 1 }])}
-        >
-          add
-            </button>*/}
-
-        <div className=''>
-          <label>Ingredient: </label>
-          <input
-            type='text'
-            value={enteredIngredient1}
-            onChange={ingredient1ChangeHandler}
-          />
-          <label> Amount: </label>
-          <input
-            type='number'
-            min='0.25'
-            step='0.25'
-            value={enteredAmount1}
-            onChange={amount1ChangeHandler}
-          />
+          <div className='inputs'>
+            <label>Ingredient 2: </label>
+            <input
+              type='text'
+              value={enteredIngredient2}
+              onChange={ingredient2ChangeHandler}
+            />
+            <label> Amount: </label>
+            <input
+              type='number'
+              min='0.25'
+              step='0.25'
+              value={enteredAmount2}
+              onChange={amount2ChangeHandler}
+            />
+          </div>
+          <div className='inputs'>
+            <label>Ingredient 3: </label>
+            <input
+              type='text'
+              value={enteredIngredient3}
+              onChange={ingredient3ChangeHandler}
+            />
+            <label> Amount: </label>
+            <input
+              type='number'
+              min='0.25'
+              step='0.25'
+              value={enteredAmount3}
+              onChange={amount3ChangeHandler}
+            />
+          </div>
+          <div className='inputs'>
+            <label>Ingredient 4: </label>
+            <input
+              type='text'
+              value={enteredIngredient4}
+              onChange={ingredient4ChangeHandler}
+            />
+            <label> Amount: </label>
+            <input
+              type='number'
+              min='0.25'
+              step='0.25'
+              value={enteredAmount4}
+              onChange={amount4ChangeHandler}
+            />
+          </div>
+          <h3>Serving Size: </h3>
+          <div className='inputs'>
+            <input
+              type='number'
+              min='1.0'
+              step='1.0'
+              value={enteredSize}
+              onChange={sizeChangeHandler}
+            />
+          </div>
+          <h3>Total Cooking Time (in minutes): </h3>
+          <div className='inputs'>
+            <input
+              type='number'
+              min='1.0'
+              step='1.0'
+              value={enteredTime}
+              onChange={timeChangeHandler}
+            />
+          </div>
         </div>
-        <div className=''>
-          <label>Ingredient: </label>
-          <input
-            type='text'
-            value={enteredIngredient2}
-            onChange={ingredient2ChangeHandler}
-          />
-          <label> Amount: </label>
-          <input
-            type='number'
-            min='0.25'
-            step='0.25'
-            value={enteredAmount2}
-            onChange={amount2ChangeHandler}
-          />
+        <div className='card-buttons'>
+          <button id='create' type='submit'>Generate Recipe</button>
+          {props.children}
         </div>
-        <div className=''>
-          <label>Ingredient: </label>
-          <input
-            type='text'
-            value={enteredIngredient3}
-            onChange={ingredient3ChangeHandler}
-          />
-          <label> Amount: </label>
-          <input
-            type='number'
-            min='0.25'
-            step='0.25'
-            value={enteredAmount3}
-            onChange={amount3ChangeHandler}
-          />
-        </div>
-        <div className=''>
-          <label>Ingredient: </label>
-          <input
-            type='text'
-            value={enteredIngredient4}
-            onChange={ingredient4ChangeHandler}
-          />
-          <label> Amount: </label>
-          <input
-            type='number'
-            min='0.25'
-            step='0.25'
-            value={enteredAmount4}
-            onChange={amount4ChangeHandler}
-          />
-        </div>
-
-        <div className=''>
-          <label>Serving Size: </label>
-          <input
-            type='number'
-            min='1.0'
-            step='1.0'
-            value={enteredSize}
-            onChange={sizeChangeHandler}
-          />
-        </div>
-        <div className=''>
-          <label>Total Cooking Time (in minutes): </label>
-          <input
-            type='number'
-            min='1.0'
-            step='1.0'
-            value={enteredTime}
-            onChange={timeChangeHandler}
-          />
-        </div>
-      </div>
-      <div className=''>
-        <button type='submit'>Generate Recipe</button>
-      </div>
-    </form> 
+      </form>
+    </div>
   );
 }
 

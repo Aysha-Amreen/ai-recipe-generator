@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Reddit+Mono:wght@200..900&family=Tenor+Sans&display=swap');
+
+.hdr {
+    font-family: "Reddit Mono", monospace;
+    display: grid;
+    grid-template-columns: 0.25fr 2fr 2fr 0.35fr;
+    align-items: center;
+    background-color: #E4CCFF;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+#logo {
+    height: 75px;
+}
+
+.header-button {
+    background-color: #dfb6ee;
+    height: 50px;
+    border-color: #af97ca;
+    border-width: 1.2px;
+    border-radius: 25px;
+    font-size: 100%;
+    padding: 10px;    
+    cursor: pointer;
+}
+
+.hdr h1 {
+    text-align: left;
+}
+
+.searchBar {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #dfb6ee;
+    border-radius: 25px;
+    padding: 10px 15px 10px 10px;
+}
+
+#searchButton {
+    background-color: #E4CCFF;
+    height: 35px;
+    width: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#search {
+    height: 20px;
+    transition: transform 0.3s ease;
+    margin-top: 5px;
+}
+
+#searchButton:hover #search {
+    transform: scale(1.5);
+}
+
+#search.clicked {
+    transform: scale(1);
+}
+
+.inputbox {
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: #ede3f1;
+    flex-grow: 1;
+    padding: 10px;
+    color: black;
+}

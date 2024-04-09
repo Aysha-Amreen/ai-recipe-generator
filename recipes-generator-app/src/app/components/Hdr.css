@@ -1,8 +1,0 @@
-.hdr {
-    font-family: "Montserrat", sans-serif;
-    display: grid;
-    grid-template-columns: 1fr, 2fr, 2fr, 1fr;
-    background-color: #E4CCFF;
-    gap: 20px;
-    padding: 20px;
-}
