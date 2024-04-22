@@ -20,6 +20,9 @@ const AddRecipe = (props) => {
   const [enteredAmount4, setAmount4] = useState('');
   const [enteredSize, setSize] = useState('');
   const [enteredTime, setTime] = useState('');
+  const [enteredCuisine, setCuisine] = useState('');
+  const [enteredMeal, setMeal] = useState('');
+  const [enteredRestrictions, setRestrictions] = useState('');
 
   const ingredient1ChangeHandler = (event) => {
     setIngredient1(event.target.value);
@@ -51,6 +54,15 @@ const AddRecipe = (props) => {
   const timeChangeHandler = (event) => {
     setTime(event.target.value);
   };
+  const cuisineChangeHandler = (event) => {
+    setCuisine(event.target.value);
+  };
+  const mealChangeHandler = (event) => {
+    setMeal(event.target.value);
+  };
+  const restrictionsChangeHandler = (event) => {
+    setRestrictions(event.target.value);
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -65,7 +77,10 @@ const AddRecipe = (props) => {
       ingredient4: enteredIngredient4,
       amount4: enteredAmount4,
       servingSize: enteredSize,
-      cookTime: enteredTime
+      cookTime: enteredTime,
+      cuisineType: enteredCuisine,
+      mealType: enteredMeal,
+      dietaryRestrictions: enteredRestrictions
     };
 
     console.log(formData);
@@ -79,6 +94,9 @@ const AddRecipe = (props) => {
     setAmount4('');
     setSize('');
     setTime('');
+    setCuisine('');
+    setMeal('');
+    setRestrictions('');
   };
 
   return (
@@ -169,6 +187,30 @@ const AddRecipe = (props) => {
               step='1.0'
               value={enteredTime}
               onChange={timeChangeHandler}
+            />
+          </div>
+          <h3>Cuisine Type: </h3>
+          <div className='inputs'>
+            <input
+              type='text'
+              value={enteredCuisine}
+              onChange={cuisineChangeHandler}
+            />
+          </div>
+          <h3>Meal Type: </h3>
+          <div className='inputs'>
+            <input
+              type='text'
+              value={enteredMeal}
+              onChange={mealChangeHandler}
+            />
+          </div>
+          <h3>Dietary Restrictions: </h3>
+          <div className='inputs'>
+            <input
+              type='text'
+              value={enteredRestrictions}
+              onChange={restrictionsChangeHandler}
             />
           </div>
         </div>
