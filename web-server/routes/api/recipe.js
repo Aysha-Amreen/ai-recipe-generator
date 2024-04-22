@@ -22,7 +22,10 @@ router.get('/:id', (req, res) => {
 router.post('/', bodyParser.json(), (req, res) => {
     Recipe.create(req.body)
         .then(() => res.json('Recipe added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+        .catch(err => {
+            console.error(err); // Log the full error
+            res.status(400).json('Error: ' + err);
+        });
 });
 
 //update recipe by id
