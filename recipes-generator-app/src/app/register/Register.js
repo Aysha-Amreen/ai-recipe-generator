@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import '../css/App.css';
+
 function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
