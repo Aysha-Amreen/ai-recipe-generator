@@ -1,0 +1,29 @@
+# Ignore Node.js dependencies
+node_modules/
+package-lock.json
+
+# Ignore cache files
+.cache/
+*.lock
+
+# Ignore server and client-specific dependencies, builds, and caches
+server/node_modules/
+server/package-lock.json
+server/.cache/
+
+client/node_modules/
+client/package-lock.json
+client/.next/
+client/build/
+client/.cache/
+
+# Logs
+*.log
+
+# Ignore system/IDE-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
